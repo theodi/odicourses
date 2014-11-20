@@ -1,0 +1,73 @@
+#course {
+	display: inline-block;
+	height: 340px;
+	vertical-align: top;
+	min-width: 450px;	
+}
+#module {
+	height: 320px;
+	padding-top: 4px;
+}
+#course_properties {
+	width: 50%;
+	display: inline-block;
+	padding: 0;
+	position: absolute;
+	bottom: 20px;
+}
+#instances {
+	width: 50%;
+	display: inline-block;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+#instances small {
+	font-size: 0.7em;
+}
+#instancelist {
+	padding-left: 10px;
+	padding-top: 5px;
+}
+#instancelist li {
+	list-style: none;
+	height: 36px;
+}
+#bookButton {
+	float: right;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	position: relative;
+	bottom: 3px;
+}
+#interestButton {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+
+#course_properties li {
+	list-style: none;
+	display: inline;
+	margin-right: 15px;
+	margin-left: 5px;
+}
+#course_properties li img {
+	display: inline-block;
+	margin: 0;
+}
+#noInstances {
+	padding-top: 5px;
+	text-align: center;
+}
+#coursesTopBlock {
+	padding: 20px;
+}
+#coursesTopBlock p {
+	display: inline-block;
+	width: 30%;
+}
+#coursesTopBlock img {
+	display: inline-block;
+	width: 550px;
+}

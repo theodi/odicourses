@@ -1,142 +1,34 @@
-<br/></br>
+<link href="style.css" media="all" rel="stylesheet" type="text/css">
+<link href="addedStyle.css" media="all" rel="stylesheet" type="text/css">
+<script src="jquery-1.10.1.min.js"></script>
+<script src="courses.js"></script>
+
+<h1>Courses</h1>
+<div id="coursesTopBlock">
+<p>
+New to open data? Get started with our one-day interactive course run by our experts. You will learn how to discover, use and describe the benefits of open data and how they impact your organisation.
+</p>
+<img src="images/banner.jpg"></img>
+</div>
 <ul id="courses" class="effect-2 listing"></ul>
-<link href="//static.theodi.org/assets/application-a4f3148bd0a470385d811c7c5124741a.css" media="all" rel="stylesheet" type="text/css">	
-<style>
-#course {
-	display: inline-block;
-	height: 340px;
-	vertical-align: top;
-	min-width: 450px;	
-}
-#module {
-	height: 320px;
-	padding-top: 4px;
-}
-#course_properties {
-	width: 50%;
-	display: inline-block;
-	padding: 0;
-	position: absolute;
-	bottom: 20px;
-}
-#instances {
-	width: 50%;
-	display: inline-block;
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-}
-#instancelist {
-	padding-left: 10px;
-	padding-top: 5px;
-}
-#instancelist li {
-	list-style: none;
-	height: 36px;
-}
-#bookButton {
-	float: right;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	position: relative;
-	bottom: 3px;
-}
-#interestButton {
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
 
-
-#course_properties li {
-	list-style: none;
-	display: inline;
-	margin-right: 15px;
-	margin-left: 5px;
-}
-#course_properties li img {
-	display: inline-block;
-	margin: 0;
-}
-#noInstances {
-	padding-top: 5px;
-	text-align: center;
-}
-</style>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
+<script>
 $.ajaxSetup ({
     // Disable caching of AJAX responses
     cache: false
 });
 $( document ).ready(function() {
     var courses, instances;
-      $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
+//      $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
+        $.getJSON( "courses.json", function( data ) {
 	console.log(data);
 //      $.getJSON( "courses.json", function( data ) {
 	courses = data.results;
-	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances.php", function (data) {
+           $.getJSON( "instances.json", function( data ) {
+//	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances.php", function (data) {
 		instances = data.results;
 		processCourses(courses,instances);
 	   });
       });
 });
-function processCourses(courses,instances) {
-	for (i=0;i<courses.length;i++) {
-		console.log(i);
-		course = courses[i];
-		title = course["title"];
-		subtitle = course.details["excerpt"];
-		if (subtitle.indexOf(".") > 0) {
-			subtitle = subtitle.split(".")[0] + ".";
-		}
-		link = course["web_url"];
-		duration = course.details["length"];
-		key = course["slug"];
-		occurs = getCourseInstances(instances,key);
-		console.log(title);
-		console.log(duration);
-		console.log(occurs);
-		heading = "<h2>" + title + "</h2><p class='courseSub'>" + subtitle + "</p>";
-		icons = '<ul id="course_properties">';
-		icons += '<li><img src="images/'+duration.replace(" ","_")+'.png" alt="'+duration+'"></img></li>';
-		icons += '<li><img src="images/f2f.png" alt="Face to face"></img></li>';
-		icons += '</ul>';
-		running = '<div id="instances">Upcoming:<ul id="instancelist">';
-		for(k=0;k<occurs.length;k++) {
-			ocr = occurs[k];
-			running += '<li><span id="courseLoc">' + ocr["location"] + '</span><a href="'+ocr["url"]+'" id="bookButton" class="btn btn-primary">Book</a></li>';
-		}
-		running += '</ul></div>';
-		if (occurs.length < 1) {
-			running = '<div id="instances">Upcoming:<br/><div id="noInstances">No dates scheduled<br/><a id="interestButton" class="btn btn-primary" href="mailto:training@theodi.org?subject=Interest in ' + title + ' course">Register interest</div></div>';
-		}
-		block = '<li id="course" class="home-module shown"><div id="module" class="module module-light module-highlight-1 module-colour-5 ">' + heading + icons + running + '</div></li>';
-		$("#courses").append(block);
-	}
-}
-
-function getCourseInstances(instances,key) {
-	occurs = [];
-	done = 0;
-	for (j=0;j<instances.length;j++) {
-		instance = instances[j];
-		if (instance.details["course"] == key && done < 2) {
-			ins = [];
-			ins["date"] = instance.details["date"];
-			ins["location"] = instance.details["location"];
-			if (instance.details["location"]) {
-				parts = instance.details["location"].split(",");
-				ins["location"] = parts[parts.length - 2].trim();
-			}
-			ins["url"] = instance.details["url"];
-			now = new Date();
-			run = new Date(ins["date"]);
-			if (run > now) {
-				done = done + 1;
-				occurs.push(ins);
-			}
-		}
-	}
-	return occurs;
-}
 </script>
