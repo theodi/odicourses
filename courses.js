@@ -1,4 +1,5 @@
 function processCourses(courses,instances) {
+	colourInc = 1;
 	for (i=0;i<courses.length;i++) {
 		course = courses[i];
 		title = course["title"];
@@ -26,8 +27,10 @@ function processCourses(courses,instances) {
 		if (occurs.length < 1) {
 			running = '<div id="instances">Upcoming:<br/><div id="noInstances">No dates scheduled<br/><a id="interestButton" class="btn btn-primary" href="mailto:training@theodi.org?subject=Interest in ' + title + ' course">Register interest</div></div>';
 		}
-		block = '<li id="course" class="home-module shown"><div id="module" class="module module-light module-highlight-1 module-colour-5 ">' + heading + icons + running + '</div></li>';
+		block = '<li id="course" class="home-module shown"><div id="module" class="module module-light module-highlight-1 module-colour-'+colourInc+' ">' + heading + icons + running + '</div></li>';
 		$("#courses").append(block);
+		colourInc = colourInc + 1;
+		if (colourInc > 12) colourInc = 1;
 	}
 }
 
