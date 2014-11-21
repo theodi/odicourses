@@ -15,11 +15,7 @@
 	        min-width: 20%;
 	}
 }
-
-#course {
-	display: inline-block;
-	vertical-align: top;
-	width: 550px;
+#courses {
 	.loading {
 		text-align: center;
 		padding-top: 40px;
@@ -27,6 +23,12 @@
 			width: 160px;
 		}
 	}
+}
+
+#course {
+	display: inline-block;
+	vertical-align: top;
+	width: 550px;
 	.module2 {
 		height: 280px;
 	}

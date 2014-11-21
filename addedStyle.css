@@ -13,15 +13,16 @@
     float: right;
     min-width: 20%; }
 
+#courses .loading {
+  text-align: center;
+  padding-top: 40px; }
+  #courses .loading img {
+    width: 160px; }
+
 #course {
   display: inline-block;
   vertical-align: top;
   width: 550px; }
-  #course .loading {
-    text-align: center;
-    padding-top: 40px; }
-    #course .loading img {
-      width: 160px; }
   #course .module2 {
     height: 280px; }
   #course ul, #course .course_properties {
