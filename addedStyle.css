@@ -7,6 +7,11 @@
     padding-left: 50px;
     padding-top: 40px;
     padding-right: 10px; }
+  #coursesTopBlock img {
+    display: inline-block;
+    max-width: 50%;
+    float: right;
+    min-width: 20%; }
 
 #course {
   display: inline-block;
