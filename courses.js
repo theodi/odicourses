@@ -4,7 +4,6 @@ function processCourses(courses,instances) {
 		course = courses[i];
 		title = course["title"];
 		subtitle = course.details["excerpt"];
-		console.log(subtitle);
 		if (subtitle.indexOf(".") > 0) {
 			subtitle = subtitle.split(".")[0] + ".";
 		}
@@ -67,7 +66,6 @@ function getCourseInstances(instances,key) {
 				suffix = "rd";
 			}
 			ins["displayDate"] = day + suffix + " " + monthNames[run.getMonth()];
-			console.log("display : " + ins["displayDate"]);
 			if (run > now) {
 				occurs.push(ins);
 			}

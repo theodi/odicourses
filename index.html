@@ -10,7 +10,9 @@ New to open data? Get started with our one-day interactive course run by our exp
 </p>
 <img src="images/banner.jpg"></img>
 </div>
-<ul id="courses" class="effect-2 listing"></ul>
+
+
+<ul id="courses" class="effect-2 listing"><div class="loading" style="text-align: center; padding-top: 40px;">Loading courses<br/><br/><img style="width: 160px;" src="http://chatv2.velaro.com//Inline/Images/loading.gif"></img></div></ul>
 
 <script>
 $.ajaxSetup ({
@@ -21,12 +23,12 @@ $( document ).ready(function() {
     var courses, instances;
         $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
 //        $.getJSON( "courses.json", function( data ) {
-	console.log(data);
 //      $.getJSON( "courses.json", function( data ) {
 	courses = data.results;
 //           $.getJSON( "instances.json", function( data ) {
 	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances.php", function (data) {
 		instances = data.results;
+		$("#courses").html("");
 		processCourses(courses,instances);
 	   });
       });

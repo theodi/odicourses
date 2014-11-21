@@ -20,6 +20,13 @@
 	display: inline-block;
 	vertical-align: top;
 	width: 550px;
+	.loading {
+		text-align: center;
+		padding-top: 40px;
+		img {
+			width: 160px;
+		}
+	}
 	.module2 {
 		height: 280px;
 	}
