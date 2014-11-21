@@ -6,7 +6,6 @@
 }
 #module {
 	height: 320px;
-	padding-top: 4px;
 }
 #course_properties {
 	width: 50%;
@@ -19,7 +18,7 @@
 	width: 50%;
 	display: inline-block;
 	position: absolute;
-	bottom: 20px;
+	top: 220px;
 	right: 20px;
 }
 #instances small {
@@ -31,7 +30,7 @@
 }
 #instancelist li {
 	list-style: none;
-	height: 36px;
+	height: 30px;
 }
 #bookButton {
 	float: right;
@@ -65,10 +64,15 @@
 }
 #coursesTopBlock p {
 	display: inline-block;
-	width: 40%;
+	min-width: 30%;
+	max-width: 50%;
+	padding-left: 50px;
+	padding-top: 40px;
+	padding-right: 10px;
 }
 #coursesTopBlock img {
 	display: inline-block;
-	width: 550px;
+	max-width: 50%;
 	float: right;
+	min-width: 20%;
 }
