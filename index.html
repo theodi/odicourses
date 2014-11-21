@@ -19,13 +19,13 @@ $.ajaxSetup ({
 });
 $( document ).ready(function() {
     var courses, instances;
-//      $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
-        $.getJSON( "courses.json", function( data ) {
+        $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
+//        $.getJSON( "courses.json", function( data ) {
 	console.log(data);
 //      $.getJSON( "courses.json", function( data ) {
 	courses = data.results;
-           $.getJSON( "instances.json", function( data ) {
-//	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances.php", function (data) {
+//           $.getJSON( "instances.json", function( data ) {
+	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances.php", function (data) {
 		instances = data.results;
 		processCourses(courses,instances);
 	   });

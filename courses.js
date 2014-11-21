@@ -4,6 +4,7 @@ function processCourses(courses,instances) {
 		course = courses[i];
 		title = course["title"];
 		subtitle = course.details["excerpt"];
+		console.log(subtitle);
 		if (subtitle.indexOf(".") > 0) {
 			subtitle = subtitle.split(".")[0] + ".";
 		}
@@ -12,22 +13,22 @@ function processCourses(courses,instances) {
 		key = course["slug"];
 		occurs = getCourseInstances(instances,key);
 		heading = "<h2><a href='" + link + "'>" + title + "</a></h2><p class='courseSub'>" + subtitle + "</p>";
-		icons = '<ul id="course_properties">';
+		icons = '<ul class="course_properties">';
 		icons += '<li><img src="images/'+duration.replace(/ /g,"_")+'.png" alt="'+duration+'"></img></li>';
 		icons += '<li><img src="images/f2f.png" alt="Face to face"></img></li>';
 		icons += '</ul>';
-		running = '<div id="instances">Upcoming: <small>('+occurs.length+')</small><ul id="instancelist">';
+		running = '<div class="instances">Upcoming: <small>('+occurs.length+')</small><ul>';
 		for(k=0;k<occurs.length;k++) {
 			ocr = occurs[k];
 			if (k < 2) {
-				running += '<li><span id="courseLoc">' + ocr["displayDate"] + ' <small>('+ocr["location"] + ')</small></span><a href="'+ocr["url"]+'" id="bookButton" class="btn btn-primary">Book</a></li>';
+				running += '<li><span id="courseLoc">' + ocr["displayDate"] + ' <small>('+ocr["location"] + ')</small></span><a href="'+ocr["url"]+'" class="courseButton bookButton btn btn-primary">Book</a></li>';
 			}
 		}
 		running += '</ul></div>';
 		if (occurs.length < 1) {
-			running = '<div id="instances">Upcoming:<br/><div id="noInstances">No dates scheduled<br/><a id="interestButton" class="btn btn-primary" href="mailto:training@theodi.org?subject=Interest in ' + title + ' course">Register interest</div></div>';
+			running = '<div class="instances">Upcoming:<br/><div class="noInstances">No dates scheduled<br/><a class="courseButton btn btn-primary" href="mailto:training@theodi.org?subject=Interest in ' + title + ' course">Register interest</div></div>';
 		}
-		block = '<li id="course" class="home-module shown"><div id="module" class="module module-light module-highlight-1 module-colour-'+colourInc+' ">' + heading + icons + running + '</div></li>';
+		block = '<li id="course" class="home-module shown"><div class="module2 module module-light module-highlight-1 module-colour-'+colourInc+' ">' + heading + icons + running + '</div></li>';
 		$("#courses").append(block);
 		colourInc = colourInc + 1;
 		if (colourInc > 12) colourInc = 1;

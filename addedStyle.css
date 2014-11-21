@@ -1,77 +1,62 @@
-#course {
-	display: inline-block;
-	vertical-align: top;
-	width: 550px;	
-}
-#module {
-	height: 280px;
-}
-#course_properties {
-	width: 50%;
-	display: inline-block;
-	padding: 0;
-	position: absolute;
-	bottom: 20px;
-}
-#instances {
-	width: 50%;
-	display: inline-block;
-	position: absolute;
-	top: 175px;
-	right: 20px;
-}
-#instances small {
-	font-size: 0.7em;
-}
-#instancelist {
-	padding-left: 10px;
-	padding-top: 5px;
-}
-#instancelist li {
-	list-style: none;
-	height: 30px;
-}
-#bookButton {
-	float: right;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	position: relative;
-	bottom: 3px;
-}
-#interestButton {
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-
-#course_properties li {
-	list-style: none;
-	display: inline;
-	margin-right: 15px;
-	margin-left: 5px;
-}
-#course_properties li img {
-	display: inline-block;
-	margin: 0;
-}
-#noInstances {
-	padding-top: 5px;
-	text-align: center;
-}
 #coursesTopBlock {
-	height: 300px;
-}
-#coursesTopBlock p {
-	display: inline-block;
-	min-width: 30%;
-	max-width: 50%;
-	padding-left: 50px;
-	padding-top: 40px;
-	padding-right: 10px;
-}
-#coursesTopBlock img {
-	display: inline-block;
-	max-width: 50%;
-	float: right;
-	min-width: 20%;
-}
+  height: 390px; }
+  #coursesTopBlock p {
+    display: inline-block;
+    min-width: 30%;
+    max-width: 50%;
+    padding-left: 50px;
+    padding-top: 40px;
+    padding-right: 10px; }
+
+#course {
+  display: inline-block;
+  vertical-align: top;
+  width: 550px; }
+  #course .module2 {
+    height: 280px; }
+  #course ul, #course .course_properties {
+    width: 50%;
+    display: inline-block;
+    padding: 0;
+    position: absolute;
+    bottom: 20px; }
+    #course ul li, #course .course_properties li {
+      list-style: none;
+      display: inline;
+      margin-right: 15px;
+      margin-left: 5px; }
+      #course ul li img, #course .course_properties li img {
+        display: inline-block;
+        margin: 0; }
+  #course .instances {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 175px;
+    right: 20px; }
+    #course .instances .noInstances {
+      padding-top: 5px;
+      text-align: center; }
+    #course .instances small {
+      font-size: 0.7em; }
+    #course .instances ul {
+      padding-left: 10px;
+      padding-top: 5px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      bottom: 0px;
+      padding: 0; }
+      #course .instances ul li {
+        list-style: none;
+        display: block;
+        height: 34px; }
+        #course .instances ul li .courseButton {
+          padding-top: 3px;
+          padding-bottom: 3px; }
+        #course .instances ul li .bookButton {
+          float: right;
+          position: relative;
+          bottom: 3px; }
+
+/*# sourceMappingURL=addedStyle.css.map */
