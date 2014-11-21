@@ -1,11 +1,10 @@
 #course {
 	display: inline-block;
-	height: 340px;
 	vertical-align: top;
-	min-width: 450px;	
+	width: 550px;	
 }
 #module {
-	height: 320px;
+	height: 280px;
 }
 #course_properties {
 	width: 50%;
@@ -18,7 +17,7 @@
 	width: 50%;
 	display: inline-block;
 	position: absolute;
-	top: 220px;
+	top: 175px;
 	right: 20px;
 }
 #instances small {
