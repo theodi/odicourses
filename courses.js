@@ -13,7 +13,7 @@ function processCourses(courses,instances) {
 		occurs = getCourseInstances(instances,key);
 		heading = "<h2><a href='" + link + "'>" + title + "</a></h2><p class='courseSub'>" + subtitle + "</p>";
 		icons = '<ul id="course_properties">';
-		icons += '<li><img src="images/'+duration.replace(" ","_")+'.png" alt="'+duration+'"></img></li>';
+		icons += '<li><img src="images/'+duration.replace(/ /g,"_")+'.png" alt="'+duration+'"></img></li>';
 		icons += '<li><img src="images/f2f.png" alt="Face to face"></img></li>';
 		icons += '</ul>';
 		running = '<div id="instances">Upcoming: <small>('+occurs.length+')</small><ul id="instancelist">';

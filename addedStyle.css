@@ -61,13 +61,14 @@
 	text-align: center;
 }
 #coursesTopBlock {
-	padding: 20px;
+	height: 300px;
 }
 #coursesTopBlock p {
 	display: inline-block;
-	width: 30%;
+	width: 40%;
 }
 #coursesTopBlock img {
 	display: inline-block;
 	width: 550px;
+	float: right;
 }
