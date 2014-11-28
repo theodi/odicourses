@@ -6,7 +6,7 @@
 <h1>Courses</h1>
 <div id="coursesTopBlock">
 <p>
-New to open data? Get started with our one-day interactive course run by our experts. You will learn how to discover, use and describe the benefits of open data and how they impact your organisation.
+The ODI offers the most comprehensive open data training in the world. Our interactive and practical courses are delivered by experts with significant experience working with open data. Sign up today or <a href="mailto:training@theodi.org">contact us</a> if you would like to discuss opportunities for training tailored to your needs. 
 </p>
 <img src="images/banner.jpg"></img>
 </div>
@@ -19,18 +19,37 @@ $.ajaxSetup ({
     // Disable caching of AJAX responses
     cache: false
 });
+
+function getInstances(courses) {
+        var instances;
+	$.getJSON( "http://www.corsproxy.com/davetaz.github.io/odicourses/instances.json", function( data ) {
+	     instances = data.results;
+	     $("#courses").html("");
+	     processCourses(courses,instances);
+	})
+	.error(function() {
+        	$.getJSON( "http://contentapi.theodi.org/with_tag.json?type=course_instance", function( data ) {
+	     		instances = data.results;
+			$("#courses").html("");
+		        processCourses(courses,instances);
+		});
+	});
+}
+
 $( document ).ready(function() {
     var courses, instances;
-        $.getJSON( "http://odinprac.theodi.org/odi_courses_web/courses.php", function( data ) {
-//        $.getJSON( "courses.json", function( data ) {
-//      $.getJSON( "courses.json", function( data ) {
-	courses = data.results;
-//           $.getJSON( "instances.json", function( data ) {
-	   $.getJSON( "http://odinprac.theodi.org/odi_courses_web/instances_enriched_eventbrite.php", function (data) {
-		instances = data.results;
-		$("#courses").html("");
-		processCourses(courses,instances);
-	   });
-      });
+        $.getJSON( "http://contentapi.theodi.org/with_tag.json?type=course", function( data ) {
+	})
+	.success(function() {
+		console.log("success");
+	     	courses = data.results;
+		instances = getInstances(courses);
+	})
+	.error(function() {
+		$.getJSON( "http://www.corsproxy.com/davetaz.github.io/odicourses/courses.json", function( data ) {
+	     		courses = data.results;
+			instances = getInstances(courses);
+		});
+	});
 });
 </script>
