@@ -22,7 +22,7 @@ $.ajaxSetup ({
 
 function getInstances(courses) {
         var instances;
-	$.getJSON( "http://www.corsproxy.com/davetaz.github.io/odicourses/instances.json", function( data ) {
+	$.getJSON( "http://www.corsproxy.com/theodi.github.io/odicourses/instances.json", function( data ) {
 	     instances = data.results;
 	     $("#courses").html("");
 	     processCourses(courses,instances);
@@ -46,7 +46,7 @@ $( document ).ready(function() {
 		instances = getInstances(courses);
 	})
 	.error(function() {
-		$.getJSON( "http://www.corsproxy.com/davetaz.github.io/odicourses/courses.json", function( data ) {
+		$.getJSON( "http://www.corsproxy.com/theodi.github.io/odicourses/courses.json", function( data ) {
 	     		courses = data.results;
 			instances = getInstances(courses);
 		});
