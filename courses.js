@@ -51,8 +51,9 @@ function getCourseInstances(instances,key) {
 			ins = [];
 			ins["date"] = instance.details["date"];
 			ins["location"] = instance.details["location"];
-			ticketsAvailable = "true";
-			if (instance.details["ticketsAvailable"]) {
+			ticketsAvailable = "unknown";
+			console.log("Available = " + instance.details["ticketsAvailable"]);
+			if (typeof instance.details["ticketsAvailbale"] != 'undefined') {
 				ticketsAvailable = instance.details["ticketsAvailable"];
 			}
 			if (instance.details["location"]) {
@@ -74,7 +75,9 @@ function getCourseInstances(instances,key) {
 				suffix = "rd";
 			}
 			ins["displayDate"] = day + suffix + " " + monthNames[run.getMonth()];
-			if (run > now && ticketsAvailable == "true") {
+			console.log(ins);
+			console.log(ticketsAvailable);
+			if (run > now) {
 				occurs.push(ins);
 			}
 		}

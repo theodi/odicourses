@@ -22,13 +22,13 @@ $.ajaxSetup ({
 
 function getInstances(courses) {
         var instances;
-	$.getJSON( "http://www.corsproxy.com/theodi.github.io/odicourses/instances.json", function( data ) {
+        $.getJSON( "http://contentapi.theodi.org/with_tag.json?type=course_instance", function( data ) {
 	     instances = data.results;
 	     $("#courses").html("");
 	     processCourses(courses,instances);
 	})
 	.error(function() {
-        	$.getJSON( "http://contentapi.theodi.org/with_tag.json?type=course_instance", function( data ) {
+		$.getJSON( "http://www.corsproxy.com/theodi.github.io/odicourses/instances.json", function( data ) {
 	     		instances = data.results;
 			$("#courses").html("");
 		        processCourses(courses,instances);
@@ -39,8 +39,6 @@ function getInstances(courses) {
 $( document ).ready(function() {
     var courses, instances;
         $.getJSON( "http://contentapi.theodi.org/with_tag.json?type=course", function( data ) {
-	})
-	.success(function() {
 		console.log("success");
 	     	courses = data.results;
 		instances = getInstances(courses);
