@@ -35,9 +35,9 @@ function getAvailability($number) {
                         if (strpos($num,"/") !== false) $num = substr($num,strrpos($num,"/")+1,strlen($num)); 
                         if (strpos($num,"-") !== false) $num = substr($num,strrpos($num,"-")+1,strlen($num)); 
                 } 
-                if ($num) { 
-                        $results[$i]["details"]["ticketsAvailable"] = getAvailability($num); 
-                } 
+//                if ($num) { 
+//                        $results[$i]["details"]["ticketsAvailable"] = getAvailability($num); 
+//                } 
         } 
         $json["results"] = $results; 
         $content = json_encode($json); 
